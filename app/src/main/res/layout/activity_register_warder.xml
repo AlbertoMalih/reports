@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.reports.RegisterWarderActivity">
+
+                <EditText
+                    android:id="@+id/password_warder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                     />
+
+                <EditText
+                    android:id="@+id/login_warder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    />
+
+            <Button
+                android:id="@+id/btn_registration_warder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="registration"
+                android:text="registration"
+                 />
+
+            <Button
+                android:id="@+id/btn_login_warder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="login"
+                android:text="sign in"
+                 />
+
+</LinearLayout>
