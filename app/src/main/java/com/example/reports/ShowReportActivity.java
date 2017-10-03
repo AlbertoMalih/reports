@@ -46,12 +46,11 @@ public class ShowReportActivity extends AppCompatActivity {
             sizeStudyingBible += nameAndUserEntry.getValue().get(MainActivity.KEY_FOR_DB_SIZE_STUDYING_BIBLE);
         }
         Log.d(MainActivity.TAG, "names :     " + names);
-        ((TextView) findViewById(R.id.et_size_publication_show_report)).append(String.valueOf(sizePublications));
-        ((TextView) findViewById(R.id.et_size_videos_show_report)).append(String.valueOf(sizeVideos));
-        ((TextView) findViewById(R.id.et_size_hours_show_report)).append(String.valueOf(sizeHours));
-        ((TextView) findViewById(R.id.et_size_repeated_visits_show_report)).append(String.valueOf(sizeRepeatVisits));
-        ((TextView) findViewById(R.id.et_size_studying_bible_show_report)).append(String.valueOf(sizeStudyingBible));
+        ((TextView) findViewById(R.id.et_size_publication_show_report)).append(":  " + String.valueOf(sizePublications));
+        ((TextView) findViewById(R.id.et_size_videos_show_report)).append(":  " + String.valueOf(sizeVideos));
+        ((TextView) findViewById(R.id.et_size_hours_show_report)).append(":  " + String.valueOf(sizeHours));
+        ((TextView) findViewById(R.id.et_size_repeated_visits_show_report)).append(":  " + String.valueOf(sizeRepeatVisits));
+        ((TextView) findViewById(R.id.et_size_studying_bible_show_report)).append(":  " + String.valueOf(sizeStudyingBible));
         listViewAllUsersWhoSendReport.setAdapter(new ArrayAdapter<>(this, R.layout.item_simple_name, R.id.TextView, names.toArray(new String[names.size()])));
-
     }
 }
