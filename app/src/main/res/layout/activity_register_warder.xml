@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.example.reports.RegisterWarderActivity">
+    tools:context="com.example.reports.RegisterWarderActivity"
+    android:weightSum="1">
 
 
     <EditText
@@ -36,5 +37,12 @@
         android:layout_height="wrap_content"
         android:onClick="login"
         android:text="@string/log_in" />
+
+    <TextView
+        android:id="@+id/generated_group_id"
+        android:textSize="26sp"
+        android:textIsSelectable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

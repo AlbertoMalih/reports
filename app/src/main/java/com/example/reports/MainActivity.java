@@ -93,11 +93,6 @@ public class MainActivity extends BaseActivity {
         Dialogs.createChooseDateForShowReport(this, getActivityComponent().firebaseDatabase(), valuesForInsertToDB, sharedPreferences.getString(YOUR_NAME_IN_PREFERENCE, ""), warderId).show();
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -112,6 +107,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.main_menu_show_report_item:
                 startActivity(new Intent(this, ChooseDataReportActivity.class));
+                break;
+            case R.id.main_menu_show_about_application:
+                startActivity(new Intent(this, AboutAppActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

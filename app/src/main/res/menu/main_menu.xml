@@ -11,4 +11,9 @@
         android:title="@string/show_report">
     </item>
 
+    <item
+        android:id="@+id/main_menu_show_about_application"
+        android:title="@string/about_application_text_item">
+    </item>
+
 </menu>
