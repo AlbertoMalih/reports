@@ -26,15 +26,13 @@
 
     <activity
         android:name=".RegisterWarderActivity"
-        android:theme="@style/AppTheme.NoActionBar"
-        android:label="@string/title_activity_login" />
+        android:theme="@style/AppTheme.NoActionBar" />
 
     <activity android:name=".RegisterUserActivity"
         android:theme="@style/AppTheme.NoActionBar" />
 
     <activity
         android:name=".ChooseDataReportActivity"
-        android:label="@string/title_activity_choose_data_report"
         android:theme="@style/AppTheme.NoActionBar" />
 
     <activity

@@ -21,7 +21,6 @@ public class ShowReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_report);
         users = (Map<String, Map<String, Long>>) getIntent().getSerializableExtra(MONTHS_DATA);
-        Log.d(MainActivity.TAG, "users :     " + users);
         listViewAllUsersWhoSendReport = (ListView) findViewById(R.id.all_users_who_send_report);
         initialize();
     }
@@ -37,7 +36,6 @@ public class ShowReportActivity extends AppCompatActivity {
             if (nameAndUserEntry.getKey().equals("group_warder")) {
                 continue;
             }
-            Log.d(MainActivity.TAG, "key :     " + nameAndUserEntry.getKey());
             names.add(nameAndUserEntry.getKey());
             sizePublications += nameAndUserEntry.getValue().get(MainActivity.KEY_FOR_DB_IZE_PUBLICATIONS);
             sizeVideos += nameAndUserEntry.getValue().get(MainActivity.KEY_FOR_DB_SIZE_VIDEOS);
@@ -45,7 +43,6 @@ public class ShowReportActivity extends AppCompatActivity {
             sizeRepeatVisits += nameAndUserEntry.getValue().get(MainActivity.KEY_FOR_DB_SIZE_REPEAT_VISITS);
             sizeStudyingBible += nameAndUserEntry.getValue().get(MainActivity.KEY_FOR_DB_SIZE_STUDYING_BIBLE);
         }
-        Log.d(MainActivity.TAG, "names :     " + names);
         ((TextView) findViewById(R.id.et_size_publication_show_report)).append(":  " + String.valueOf(sizePublications));
         ((TextView) findViewById(R.id.et_size_videos_show_report)).append(":  " + String.valueOf(sizeVideos));
         ((TextView) findViewById(R.id.et_size_hours_show_report)).append(":  " + String.valueOf(sizeHours));

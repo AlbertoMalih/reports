@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/main_menu_registration_item"
-        android:title="registration">
+        android:title="@string/registration">
     </item>
 
     <item
         android:id="@+id/main_menu_show_report_item"
-        android:title="show report">
+        android:title="@string/show_report">
     </item>
 
 </menu>

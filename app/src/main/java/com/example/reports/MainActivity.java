@@ -41,7 +41,6 @@ public class MainActivity extends BaseActivity {
         if (getActivityComponent().firebaseAuth().getCurrentUser() == null && sharedPreferences.getString(ID_GROUP_WARDER_IN_PREFERENCE, "").isEmpty()) {
             chooseAndCarryOutAuthorization(null);
         }
-
     }
 
     @Override
@@ -94,10 +93,10 @@ public class MainActivity extends BaseActivity {
         Dialogs.createChooseDateForShowReport(this, getActivityComponent().firebaseDatabase(), valuesForInsertToDB, sharedPreferences.getString(YOUR_NAME_IN_PREFERENCE, ""), warderId).show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

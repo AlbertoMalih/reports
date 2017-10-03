@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="studying_bible " />
+            android:text="@string/size_studying_bible" />
 
         <TextView
             android:id="@+id/et_size_repeated_visits_show_report"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="repeated_visits " />
+            android:text="@string/size_repeated_visits" />
 
         <TextView
             android:id="@+id/et_size_hours_show_report"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="hours " />
+            android:text="@string/size_hours" />
 
         <TextView
             android:id="@+id/et_size_videos_show_report"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="videos " />
+            android:text="@string/size_videos" />
 
         <TextView
             android:id="@+id/et_size_publication_show_report"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="publication " />
+            android:text="@string/size_publications" />
 
         <ListView
             android:id="@+id/all_users_who_send_report"

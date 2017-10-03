@@ -1,66 +1,68 @@
 <resources>
-    <string name="app_name">My Application 5</string>
-    <string name="title_activity_login">Sign in</string>
-
-    <!-- Strings related to login -->
+    <string name="app_name">jw reports</string>
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="prompt_password">Password </string>
+    <string name="registration_successfully">register successfully</string>
+    <string name="registration_not_successfully">register NOT successfully</string>
+    <string name="size_publications">size publications</string>
+    <string name="size_videos">size videos</string>
+    <string name="size_hours">size hours</string>
+    <string name="size_repeated_visits">size repeated visits</string>
+    <string name="size_studying_bible">size studying bible</string>
+    <string name="send_report">send report</string>
+    <string name="warder_id">group id</string>
+    <string name="your_name">your name</string>
+    <string name="log_in">log in</string>
+    <string name="registration">registration</string>
+    <string name="show_report">show group report</string>
+    <string name="register_for_warder_group">register for warder group</string>
+    <string name="register_for_preacher">register for preacher</string>
 
     <array name="activities_for_registration">
         <item>
-            register if you warder group
+            register for warder group
         </item>
         <item>
-            register if you user in your group
+            register for preacher
         </item>
     </array>
+
     <array name="months">
         <item>
-            month 1
+            january
         </item>
         <item>
-            month 2
+            february
         </item>
         <item>
-            month 3
+            march
         </item>
         <item>
-            month 4
+            april
         </item>
         <item>
-            month 5
+            may
         </item>
         <item>
-            month 6
+            june
         </item>
         <item>
-            month 7
+            july
         </item>
         <item>
-            month 8
+            august
         </item>
         <item>
-            month 9
+            september
         </item>
         <item>
-            month 10
+            october
         </item>
         <item>
-            month 11
+            november
         </item>
         <item>
-            month 12
+            december
         </item>
     </array>
-    <string name="title_activity_choose_data_report">ChooseDataReportActivity</string>
-    <string name="action_settings">Settings</string>
 </resources>

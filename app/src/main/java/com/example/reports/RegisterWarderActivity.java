@@ -24,9 +24,9 @@ public class RegisterWarderActivity extends BaseActivity {
     private EditText etLogin;
     private EditText edPassword;
     @Inject
-     FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth;
     @Inject
-     FirebaseDatabase firebaseDatabase;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class RegisterWarderActivity extends BaseActivity {
                             }
                         });
             } else {
-                Toast.makeText(RegisterWarderActivity.this, " register not succhesfull", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterWarderActivity.this, RegisterWarderActivity.this.getString(R.string.registration_not_successfully), Toast.LENGTH_LONG).show();
             }
         }
     };
@@ -95,7 +95,7 @@ public class RegisterWarderActivity extends BaseActivity {
                     finish();
                 }
             } else {
-                Toast.makeText(RegisterWarderActivity.this, " login not succhesfull", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterWarderActivity.this, RegisterWarderActivity.this.getString(R.string.registration_not_successfully), Toast.LENGTH_LONG).show();
             }
         }
     };

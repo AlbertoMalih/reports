@@ -35,12 +35,9 @@ public class RegisterUserActivity extends BaseActivity {
     public void registration(View v) {
         String login = tv_id_warder_group.getText().toString();
         String password = tv_your_name.getText().toString();
-        Log.d(MainActivity.TAG, login + " : login;\n " + password + " : password;\n ");
-
         if (password.isEmpty() || login.isEmpty()) {
             return;
         }
-
         sharedPreferences.edit()
                 .putString(ID_GROUP_WARDER_IN_PREFERENCE, tv_id_warder_group.getText().toString().trim())
                 .putString(YOUR_NAME_IN_PREFERENCE, tv_your_name.getText().toString().trim())

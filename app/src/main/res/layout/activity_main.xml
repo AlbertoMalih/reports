@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="TextView"
+            android:hint="@string/size_publications"
             android:inputType="number" />
 
     </TableRow>
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="TextView"
+            android:hint="@string/size_videos"
             android:inputType="number" />
 
     </TableRow>
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="TextView"
+            android:hint="@string/size_hours"
             android:inputType="number" />
 
     </TableRow>
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="TextView"
+            android:hint="@string/size_repeated_visits"
             android:inputType="number" />
 
     </TableRow>
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="TextView"
+            android:hint="@string/size_studying_bible"
             android:inputType="number" />
 
     </TableRow>
@@ -82,6 +82,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="sendReport"
-        android:text="btn_send_report" />
+        android:text="@string/send_report" />
 
 </LinearLayout>

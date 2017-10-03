@@ -86,17 +86,10 @@ public class Dialogs {
                                         .append(yourNameInDb)
                                         .toString())
                                 .setValue(propertiesForWrite);
-//                        Log.d(MainActivity.TAG, FirebaseDatabase.getInstance().getReference(
-//                                new StringBuilder("sobranies/")
-//                                        .append(warderId).append("/")
-//                                        .append(year).append("/")
-//                                        .append(monthOfYear).append("/")
-//                                        .append(yourNameInDb)
-//                                        .toString()) + "   \nreference");
                     }
                 }
                 , defaultDate.get(Calendar.YEAR), defaultDate.get(Calendar.MONTH), defaultDate.get(Calendar.DAY_OF_MONTH));
 
         return result;
     }
-}
+}//new String[]{activity.getString(R.string.register_for_warder_group), activity.getString(R.string.register_for_preacher)},
