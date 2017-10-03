@@ -10,6 +10,7 @@ import com.example.reports.dagger.PerActivity;
 import com.example.reports.dagger.modules.ActivityModule;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import dagger.Component;
 
@@ -26,6 +27,8 @@ public interface ActivityComponent {
 
     //    FirebaseUser firebaseUser();
     FirebaseAuth firebaseAuth();
+
+    FirebaseDatabase firebaseDatabase();
 
     SharedPreferences sharedPreferences();
 

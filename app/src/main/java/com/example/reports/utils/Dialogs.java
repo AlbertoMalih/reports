@@ -2,17 +2,26 @@ package com.example.reports.utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
+import android.widget.DatePicker;
 
 import com.example.reports.MainActivity;
 import com.example.reports.R;
 import com.example.reports.RegisterUserActivity;
 import com.example.reports.RegisterWarderActivity;
 import com.example.reports.ShowReportActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.example.reports.MainActivity.YOUR_NAME_IN_PREFERENCE;
 
 /**
  * Created by Олег on 26.09.2017.
@@ -61,4 +70,33 @@ public class Dialogs {
         return builder.create();
     }
 
+    public static DatePickerDialog createChooseDateForShowReport(final Activity activity, final FirebaseDatabase database, final Map<String, Integer> propertiesForWrite,
+                                                                 final String yourNameInDb, final String warderId) {
+        Calendar defaultDate = Calendar.getInstance();
+        defaultDate.set(Calendar.MONTH, defaultDate.get(Calendar.MONTH) -1);
+        DatePickerDialog result = new DatePickerDialog(activity,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        database.getReference(
+                                new StringBuilder("sobranies/")
+                                        .append(warderId).append("/")
+                                        .append(year).append("/")
+                                        .append(monthOfYear).append("/")
+                                        .append(yourNameInDb)
+                                        .toString())
+                                .setValue(propertiesForWrite);
+//                        Log.d(MainActivity.TAG, FirebaseDatabase.getInstance().getReference(
+//                                new StringBuilder("sobranies/")
+//                                        .append(warderId).append("/")
+//                                        .append(year).append("/")
+//                                        .append(monthOfYear).append("/")
+//                                        .append(yourNameInDb)
+//                                        .toString()) + "   \nreference");
+                    }
+                }
+                , defaultDate.get(Calendar.YEAR), defaultDate.get(Calendar.MONTH), defaultDate.get(Calendar.DAY_OF_MONTH));
+
+        return result;
+    }
 }

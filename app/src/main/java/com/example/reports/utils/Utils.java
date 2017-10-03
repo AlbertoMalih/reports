@@ -20,7 +20,7 @@ public class Utils {
         CharSequence[] monthsInStrings = activity.getResources().getStringArray(R.array.months);
         CharSequence[] result = new CharSequence[months.length];
         for (int i = 0; i < months.length; i++) {
-            result[i] = monthsInStrings[(int)(months[i] - 1)];//- 1 where months have from 1
+            result[i] = monthsInStrings[months[i] - 1];//- 1 where months have from 1
         }
         return result;
     }

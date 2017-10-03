@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.reports.utils.Dialogs;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
@@ -42,6 +41,7 @@ public class MainActivity extends BaseActivity {
         if (getActivityComponent().firebaseAuth().getCurrentUser() == null && sharedPreferences.getString(ID_GROUP_WARDER_IN_PREFERENCE, "").isEmpty()) {
             chooseAndCarryOutAuthorization(null);
         }
+
     }
 
     @Override
@@ -91,15 +91,7 @@ public class MainActivity extends BaseActivity {
         valuesForInsertToDB.put(KEY_FOR_DB_SIZE_HOURS, sizeHours);
         valuesForInsertToDB.put(KEY_FOR_DB_SIZE_REPEAT_VISITS, sizeRepeatVisits);
         valuesForInsertToDB.put(KEY_FOR_DB_SIZE_STUDYING_BIBLE, sizeStudyingBible);
-
-        FirebaseDatabase.getInstance().getReference(
-                new StringBuilder("sobranies/")
-                        .append(warderId).append("/")
-                        .append(Calendar.getInstance().get(Calendar.YEAR)).append("/")
-                        .append(Calendar.getInstance().get(Calendar.MONTH)).append("/")
-                        .append(sharedPreferences.getString(YOUR_NAME_IN_PREFERENCE, ""))
-                        .toString())
-                .setValue(valuesForInsertToDB);
+        Dialogs.createChooseDateForShowReport(this, getActivityComponent().firebaseDatabase(), valuesForInsertToDB, sharedPreferences.getString(YOUR_NAME_IN_PREFERENCE, ""), warderId).show();
     }
 
     @Override
