@@ -11,18 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ShowReportActivity extends AppCompatActivity {
+import butterknife.BindView;
+
+public class ShowReportActivity extends BaseActivity {
     public static final String MONTHS_DATA = "MONTHS_DATA";
     private Map<String, Map<String, Long>> users;
-    private ListView listViewAllUsersWhoSendReport;
+    @BindView(R.id.all_users_who_send_report)
+    ListView listViewAllUsersWhoSendReport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_report);
         users = (Map<String, Map<String, Long>>) getIntent().getSerializableExtra(MONTHS_DATA);
-        listViewAllUsersWhoSendReport = (ListView) findViewById(R.id.all_users_who_send_report);
         initialize();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_show_report;
+    }
+
+    @Override
+    public void injectDependencies() {
+
     }
 
     private void initialize() {

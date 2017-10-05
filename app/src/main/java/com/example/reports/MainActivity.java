@@ -9,17 +9,16 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.reports.utils.Dialogs;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+
 public class MainActivity extends BaseActivity {
     public static final String ID_GROUP_WARDER_IN_PREFERENCE = "ID_GROUP_WARDER";
-
     public static final String TAG = "MainActivityTag";
     public static final String YOUR_NAME_IN_PREFERENCE = "YOUR_NAME";
     public static final int WARDER_REGISTRATION_ACTIVITY_REQUEST = 51;
@@ -30,14 +29,23 @@ public class MainActivity extends BaseActivity {
     public static final String KEY_FOR_DB_SIZE_REPEAT_VISITS = "sizeRepeatVisits";
     public static final String KEY_FOR_DB_SIZE_STUDYING_BIBLE = "sizeStudyingBible";
 
+    @BindView(R.id.et_size_publication)
+    EditText inputTextSizePublications;
+    @BindView(R.id.et_size_hours)
+    EditText inputTextSizeHours;
+    @BindView(R.id.et_size_repeated_visits)
+    EditText inputTextSizeRepeatVisits;
+    @BindView(R.id.et_size_studying_bible)
+    EditText inputTextSizeStudyingBible;
+    @BindView(R.id.et_size_videos)
+    EditText inputTextSizeVideos;
     @Inject
     SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        super.onCreate(savedInstanceState);
         if (getActivityComponent().firebaseAuth().getCurrentUser() == null && sharedPreferences.getString(ID_GROUP_WARDER_IN_PREFERENCE, "").isEmpty()) {
             chooseAndCarryOutAuthorization(null);
         }
@@ -60,27 +68,27 @@ public class MainActivity extends BaseActivity {
 
         int sizePublications = 0;
         try {
-            sizePublications = Integer.parseInt(((EditText) findViewById(R.id.et_size_publication)).getText().toString());
+            sizePublications = Integer.parseInt(inputTextSizePublications.getText().toString());
         } catch (NumberFormatException e) {
         }
         int sizeVideos = 0;
         try {
-            sizeVideos = Integer.parseInt(((EditText) findViewById(R.id.et_size_videos)).getText().toString());
+            sizeVideos = Integer.parseInt(inputTextSizeVideos.getText().toString());
         } catch (NumberFormatException e) {
         }
         int sizeHours = 0;
         try {
-            sizeHours = Integer.parseInt(((EditText) findViewById(R.id.et_size_hours)).getText().toString());
+            sizeHours = Integer.parseInt(inputTextSizeHours.getText().toString());
         } catch (NumberFormatException e) {
         }
         int sizeRepeatVisits = 0;
         try {
-            sizeRepeatVisits = Integer.parseInt(((EditText) findViewById(R.id.et_size_repeated_visits)).getText().toString());
+            sizeRepeatVisits = Integer.parseInt(inputTextSizeRepeatVisits.getText().toString());
         } catch (NumberFormatException e) {
         }
         int sizeStudyingBible = 0;
         try {
-            sizeStudyingBible = Integer.parseInt(((EditText) findViewById(R.id.et_size_studying_bible)).getText().toString());
+            sizeStudyingBible = Integer.parseInt(inputTextSizeStudyingBible.getText().toString());
         } catch (NumberFormatException e) {
         }
 
@@ -113,5 +121,9 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected int getLayoutId(){
+        return R.layout.activity_main;
     }
 }

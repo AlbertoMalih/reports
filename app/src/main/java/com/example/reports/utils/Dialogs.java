@@ -92,4 +92,4 @@ public class Dialogs {
 
         return result;
     }
-}//new String[]{activity.getString(R.string.register_for_warder_group), activity.getString(R.string.register_for_preacher)},
+}

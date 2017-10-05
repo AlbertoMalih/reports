@@ -1,9 +1,6 @@
 package com.example.reports;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,6 +19,9 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.OnItemClick;
+
 public class ChooseDataReportActivity extends BaseActivity {
     @Inject
     FirebaseDatabase firebaseDatabase;
@@ -29,18 +29,22 @@ public class ChooseDataReportActivity extends BaseActivity {
     FirebaseAuth firebaseAuth;
     private Map<Integer, List<Integer>> yearsAndMonths;
     private Map<Integer, Map<Integer, Map<String, Map<String, Long>>>> allDataFromDb;
-    private ListView yearsAndNestedMonths;
+
+    @BindView(R.id.lv_show_all_years_from_container_in_db)
+    ListView inputYearsAndNestedMonths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_data_report);
-        yearsAndNestedMonths = ((ListView) findViewById(R.id.lv_show_all_years_from_container_in_db));
-
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
         }
         initializeFromDb();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_choose_data_report;
     }
 
     @Override
@@ -54,7 +58,6 @@ public class ChooseDataReportActivity extends BaseActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.d(MainActivity.TAG, " in initializeFromDb");
                         Map<String, Map<String, Map<String, Map<String, Long>>>> tempMap = (Map<String, Map<String, Map<String, Map<String, Long>>>>) dataSnapshot.getValue();
                         yearsAndMonths = new HashMap<>();
                         allDataFromDb = new HashMap<>();
@@ -73,26 +76,24 @@ public class ChooseDataReportActivity extends BaseActivity {
                             yearsAndMonths.put(year, months);
                             allDataFromDb.put(year, monthForAllData);
                         }
-                        yearsAndNestedMonths.setAdapter(
+                        inputYearsAndNestedMonths.setAdapter(
                                 new ArrayAdapter<>(
                                         ChooseDataReportActivity.this, android.R.layout.simple_spinner_item, Utils.convertIntegerToCharSequense(yearsAndMonths.keySet())
                                 )
                         );
-                        yearsAndNestedMonths.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                int year = yearsAndMonths.keySet().toArray(new Integer[0])[position];
-                                Dialogs.createChooseNestedMonthsInYear(
-                                        ChooseDataReportActivity.this, allDataFromDb.get(year).keySet().toArray(new Integer[0]),
-                                        allDataFromDb.get(year)
-                                ).show();
-                            }
-                        });
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
+    }
+
+    @OnItemClick(R.id.lv_show_all_years_from_container_in_db)
+    public void onClickYearsAndNestedMonths(int position) {
+        int year = yearsAndMonths.keySet().toArray(new Integer[0])[position];
+        Dialogs.createChooseNestedMonthsInYear(
+                ChooseDataReportActivity.this, allDataFromDb.get(year).keySet().toArray(new Integer[0]),
+                allDataFromDb.get(year)
+        ).show();
     }
 }

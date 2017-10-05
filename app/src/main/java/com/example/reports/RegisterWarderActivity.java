@@ -21,10 +21,15 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+
 public class RegisterWarderActivity extends BaseActivity {
-    private EditText etLogin;
-    private EditText edPassword;
-    private TextView viewShowGroupId;
+    @BindView(R.id.login_warder)
+    EditText inputTextLogin;
+    @BindView(R.id.password_warder)
+    EditText inputTextPassword;
+    @BindView(R.id.generated_group_id)
+    TextView outputViewShowGroupId;
     @Inject
     FirebaseAuth firebaseAuth;
     @Inject
@@ -33,10 +38,11 @@ public class RegisterWarderActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_warder);
-        etLogin = (EditText) findViewById(R.id.login_warder);
-        edPassword = (EditText) findViewById(R.id.password_warder);
-        viewShowGroupId = (TextView) findViewById(R.id.generated_group_id);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_register_warder;
     }
 
     @Override
@@ -45,8 +51,8 @@ public class RegisterWarderActivity extends BaseActivity {
     }
 
     public void registration(View v) {
-        String login = etLogin.getText().toString();
-        String password = edPassword.getText().toString();
+        String login = inputTextLogin.getText().toString();
+        String password = inputTextPassword.getText().toString();
         if (password.isEmpty() || login.isEmpty()) {
             return;
         }
@@ -54,8 +60,8 @@ public class RegisterWarderActivity extends BaseActivity {
     }
 
     public void login(View v) {
-        String login = etLogin.getText().toString().trim();
-        String password = edPassword.getText().toString().trim();
+        String login = inputTextLogin.getText().toString().trim();
+        String password = inputTextPassword.getText().toString().trim();
         if (password.isEmpty() || login.isEmpty()) {
             return;
         }
@@ -79,7 +85,7 @@ public class RegisterWarderActivity extends BaseActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isComplete()) {
                                     setResult(Activity.RESULT_OK);
-                                    viewShowGroupId.setText(firebaseAuth.getCurrentUser().getUid());
+                                    outputViewShowGroupId.setText(firebaseAuth.getCurrentUser().getUid());
                                     Toast.makeText(RegisterWarderActivity.this, RegisterWarderActivity.this.getString(R.string.registration_successfully), Toast.LENGTH_LONG).show();                                }
                             }
                         });
@@ -95,7 +101,7 @@ public class RegisterWarderActivity extends BaseActivity {
             if (task.isSuccessful()) {
                 if (task.isComplete()) {
                     setResult(Activity.RESULT_OK);
-                    viewShowGroupId.setText(firebaseAuth.getCurrentUser().getUid());
+                    outputViewShowGroupId.setText(firebaseAuth.getCurrentUser().getUid());
                     Toast.makeText(RegisterWarderActivity.this, RegisterWarderActivity.this.getString(R.string.registration_successfully), Toast.LENGTH_LONG).show();
                 }
             } else {
