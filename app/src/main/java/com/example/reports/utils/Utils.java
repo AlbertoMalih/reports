@@ -7,6 +7,7 @@ import com.example.reports.MainActivity;
 import com.example.reports.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class Utils {
 
     public static CharSequence[] convertIntegerMonthsToString(Activity activity, Integer[] months) {
+        Arrays.sort(months);
         CharSequence[] monthsInStrings = activity.getResources().getStringArray(R.array.months);
         CharSequence[] result = new CharSequence[months.length];
         for (int i = 0; i < months.length; i++) {
