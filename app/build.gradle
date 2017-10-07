@@ -18,6 +18,10 @@ android {
                     '' +
                     'roid.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            debuggable true
+        }
     }
 }
 

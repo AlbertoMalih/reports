@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
     public static final String YOUR_NAME_IN_PREFERENCE = "YOUR_NAME";
     public static final int WARDER_REGISTRATION_ACTIVITY_REQUEST = 51;
     public static final int USER_REGISTRATION_ACTIVITY_REQUEST = 52;
-    public static final String KEY_FOR_DB_IZE_PUBLICATIONS = "sizePublications";
+    public static final String KEY_FOR_DB_SIZE_PUBLICATIONS = "sizePublications";
     public static final String KEY_FOR_DB_SIZE_VIDEOS = "sizeVideos";
     public static final String KEY_FOR_DB_SIZE_HOURS = "sizeHours";
     public static final String KEY_FOR_DB_SIZE_REPEAT_VISITS = "sizeRepeatVisits";
@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity {
         }
 
         Map<String, Integer> valuesForInsertToDB = new HashMap<>();
-        valuesForInsertToDB.put(KEY_FOR_DB_IZE_PUBLICATIONS, sizePublications);
+        valuesForInsertToDB.put(KEY_FOR_DB_SIZE_PUBLICATIONS, sizePublications);
         valuesForInsertToDB.put(KEY_FOR_DB_SIZE_VIDEOS, sizeVideos);
         valuesForInsertToDB.put(KEY_FOR_DB_SIZE_HOURS, sizeHours);
         valuesForInsertToDB.put(KEY_FOR_DB_SIZE_REPEAT_VISITS, sizeRepeatVisits);

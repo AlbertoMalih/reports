@@ -9,11 +9,11 @@
     <string name="registration_successfully">регистрация успешна</string>
     <string name="send_report">отправить отчет</string>
     <string name="show_report">показать отчет группы</string>
-    <string name="size_hours">колличество часов</string>
-    <string name="size_publications">колличесвто публикаций</string>
-    <string name="size_repeated_visits">колличесвто повторных посещений</string>
-    <string name="size_studying_bible">колличесвто изучений библии</string>
-    <string name="size_videos">колличесвто видео</string>
+    <string name="size_hours">часов: </string>
+    <string name="size_publications">публикаций: </string>
+    <string name="size_repeated_visits">повторных посещений: </string>
+    <string name="size_studying_bible">изучений библии: </string>
+    <string name="size_videos">видео: </string>
     <string name="warder_id">ид группы</string>
     <string name="your_name">твое имя</string>
     <string name="about_application_text_item">про приложение</string>

@@ -4,11 +4,11 @@
     <string name="prompt_password">Password </string>
     <string name="registration_successfully">register successfully</string>
     <string name="registration_not_successfully">register NOT successfully</string>
-    <string name="size_publications">size publications</string>
-    <string name="size_videos">size videos</string>
-    <string name="size_hours">size hours</string>
-    <string name="size_repeated_visits">size repeated visits</string>
-    <string name="size_studying_bible">size studying bible</string>
+    <string name="size_publications">publications: </string>
+    <string name="size_videos">videos: </string>
+    <string name="size_hours">hours: </string>
+    <string name="size_repeated_visits">repeated visits: </string>
+    <string name="size_studying_bible">studying bible: </string>
     <string name="send_report">send report</string>
     <string name="warder_id">group id</string>
     <string name="your_name">your name</string>
