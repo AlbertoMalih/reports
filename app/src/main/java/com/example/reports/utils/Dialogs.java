@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 import android.widget.DatePicker;
 
 import com.example.reports.MainActivity;
@@ -13,15 +13,14 @@ import com.example.reports.R;
 import com.example.reports.RegisterUserActivity;
 import com.example.reports.RegisterWarderActivity;
 import com.example.reports.ShowReportActivity;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.reports.model.User;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import static com.example.reports.MainActivity.YOUR_NAME_IN_PREFERENCE;
 
 /**
  * Created by Олег on 26.09.2017.
@@ -53,7 +52,8 @@ public class Dialogs {
         return builder.create();
     }
 
-    public static AlertDialog createChooseNestedMonthsInYear(final Activity activity, final Integer[] months, final Map<Integer, Map<String, Map<String, Long>>> usersDataFromYear) {
+    public static AlertDialog createChooseNestedMonthsInYear(final Activity activity, final Integer[] months,
+                                                             final Map<Integer, Map<String, User>> usersDataFromYear) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder
                 .setTitle("choose month in year")
@@ -62,8 +62,12 @@ public class Dialogs {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int item) {
+                                HashMap<Integer, Map<String, User>> result = new HashMap<>();
+                                result.put(item, usersDataFromYear.get(months[item]));
                                 activity.startActivity(
-                                        new Intent(activity, ShowReportActivity.class).putExtra(ShowReportActivity.MONTHS_DATA, ((HashMap) usersDataFromYear.get(months[item])))
+                                        new Intent(activity, ShowReportActivity.class).
+                                                putExtra(ShowReportActivity.MONTHS_DATA, result)
+                                                .putExtra(ShowReportActivity.ATTRIBUTE_SHOW_IN_YEAR, false)
                                 );
                             }
                         });
@@ -73,7 +77,7 @@ public class Dialogs {
     public static DatePickerDialog createChooseDateForShowReport(final Activity activity, final FirebaseDatabase database, final Map<String, Integer> propertiesForWrite,
                                                                  final String yourNameInDb, final String warderId) {
         Calendar defaultDate = Calendar.getInstance();
-        defaultDate.set(Calendar.MONTH, defaultDate.get(Calendar.MONTH) -1);
+        defaultDate.set(Calendar.MONTH, defaultDate.get(Calendar.MONTH) - 1);
         DatePickerDialog result = new DatePickerDialog(activity,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override

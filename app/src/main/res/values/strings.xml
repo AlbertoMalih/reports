@@ -77,5 +77,6 @@
         About the creator (gu.oleg2@gmail.com): \n
         I did not want to mess around very hard with the Google license, so you will not find this app in the play markete.
     </string>
+    <string name="show_year_report">show year report</string>
 
 </resources>
