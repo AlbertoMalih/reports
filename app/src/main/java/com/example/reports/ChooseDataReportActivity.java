@@ -13,9 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -28,7 +26,6 @@ public class ChooseDataReportActivity extends BaseActivity {
     FirebaseDatabase firebaseDatabase;
     @Inject
     FirebaseAuth firebaseAuth;
-    //    private Map<Integer, List<Integer>> yearsAndMonths;
     private Map<Integer, Map<Integer, Map<String, Map<String, Long>>>> allDataFromDb;
 
     @BindView(R.id.lv_show_all_years_from_container_in_db)
@@ -40,7 +37,7 @@ public class ChooseDataReportActivity extends BaseActivity {
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
         }
-        initializeFromDb();
+        initializeDbData();
     }
 
     @Override
@@ -53,7 +50,7 @@ public class ChooseDataReportActivity extends BaseActivity {
         getActivityComponent().inject(this);
     }
 
-    private void initializeFromDb() {
+    private void initializeDbData() {
         (firebaseDatabase.getReference("sobranies")
                 .child(getActivityComponent().firebaseAuth().getCurrentUser().getUid()))
                 .addListenerForSingleValueEvent(new ValueEventListener() {
