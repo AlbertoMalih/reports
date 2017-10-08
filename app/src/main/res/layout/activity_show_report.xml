@@ -37,7 +37,7 @@
             android:text="@string/size_hours" />
 
         <TextView
-            android:id="@+id/size_videos_show_report_of_user"
+            android:id="@+id/size_videos_of_user_show_report"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -45,7 +45,7 @@
             android:text="@string/size_videos" />
 
         <TextView
-            android:id="@+id/size_publication_show_report_of_user"
+            android:id="@+id/size_publications_of_user_show_report"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

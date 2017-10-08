@@ -46,9 +46,7 @@ public class RegisterUserActivity extends BaseActivity {
                 .putString(ID_GROUP_WARDER_IN_PREFERENCE, inputTextIdWarderGroup.getText().toString().trim())
                 .putString(YOUR_NAME_IN_PREFERENCE, inputTextYourName.getText().toString().trim())
         .apply();
-
         setResult(Activity.RESULT_OK);
-
         finish();
     }
 }

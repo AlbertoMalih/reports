@@ -40,14 +40,14 @@
             android:textIsSelectable="true" />
 
         <TextView
-            android:id="@+id/size_videos_show_report_of_user"
+            android:id="@+id/size_videos_of_user_show_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/size_videos"
             android:textIsSelectable="true" />
 
         <TextView
-            android:id="@+id/size_publication_show_report_of_user"
+            android:id="@+id/size_publications_of_user_show_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/size_publications"
