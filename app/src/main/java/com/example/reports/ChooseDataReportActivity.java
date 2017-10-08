@@ -52,6 +52,7 @@ public class ChooseDataReportActivity extends BaseActivity {
         getActivityComponent().inject(this);
     }
 
+    //todo refactory
     private void initializeFromDb() {
         (firebaseDatabase.getReference("sobranies")
                 .child(getActivityComponent().firebaseAuth().getCurrentUser().getUid()))

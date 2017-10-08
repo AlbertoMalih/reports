@@ -35,13 +35,4 @@ public class Utils {
         }
         return result;
     }
-
-        public static List<Integer> convertStringToInteger(List<String> charSequences) {
-        List<Integer> result = new ArrayList<>(charSequences.size());
-        for (String charSequence : charSequences) {
-            Log.d(MainActivity.TAG, charSequence + "  - string ");
-            result.add(Integer.parseInt(charSequence));
-        }
-        return result;
-    }
 }
