@@ -22,7 +22,7 @@ public class ShowReportActivity extends BaseActivity {
     public static final String MONTHS_DATA = "MONTHS_DATA";
     final String ATTRIBUTE_NAME = "ATTRIBUTE_NAME";
 
-    private Map<String, Map<String, Long>> users;
+    private Map<String, Map<String, Long>> dataOfUsers;
     @BindView(R.id.all_users_who_send_report_and_data)
     ListView allUsersWhoSendReportAndData;
     @BindView(R.id.size_publications_of_user_show_report)
@@ -40,7 +40,7 @@ public class ShowReportActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        users = (Map<String, Map<String, Long>>) getIntent().getSerializableExtra(MONTHS_DATA);
+        dataOfUsers = (Map<String, Map<String, Long>>) getIntent().getSerializableExtra(MONTHS_DATA);
         initialize();
     }
 
@@ -62,7 +62,7 @@ public class ShowReportActivity extends BaseActivity {
         int sizeStudyingBible = 0;
         List<Map<String, String>> itemsNamesAndData = new ArrayList<>();
         Map<String, String> itemData;
-        for (Map.Entry<String, Map<String, Long>> nameAndUserEntry : users.entrySet()) {
+        for (Map.Entry<String, Map<String, Long>> nameAndUserEntry : dataOfUsers.entrySet()) {
             if (nameAndUserEntry.getKey().equals("group_warder")) {
                 continue;
             }

@@ -81,8 +81,8 @@ public class Dialogs {
                         database.getReference(
                                 new StringBuilder("sobranies/")
                                         .append(warderId).append("/")
-                                        .append(year).append("/")
-                                        .append(monthOfYear).append("/")
+                                        .append(year + "").append("/")
+                                        .append(monthOfYear + "").append("/")
                                         .append(yourNameInDb)
                                         .toString())
                                 .setValue(propertiesForWrite);

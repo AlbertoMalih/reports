@@ -73,8 +73,14 @@ public class RegisterWarderActivity extends BaseActivity {
         @Override
         public void onComplete(@NonNull Task<AuthResult> task) {
             if (task.isSuccessful()) {
-                Map<String, String> dataUsersInSingleСollection = new HashMap<>();
-                dataUsersInSingleСollection.put("group_warder", task.getResult().getUser().getUid());
+                Map<String, Map<String, Long>> dataUsersInSingleСollection = new HashMap<>();
+                Map<String, Long> nullData = new HashMap<>();
+                nullData.put(MainActivity.KEY_FOR_DB_SIZE_HOURS, 0L);
+                nullData.put(MainActivity.KEY_FOR_DB_SIZE_PUBLICATIONS, 0L);
+                nullData.put(MainActivity.KEY_FOR_DB_SIZE_STUDYING_BIBLE, 0L);
+                nullData.put(MainActivity.KEY_FOR_DB_SIZE_VIDEOS, 0L);
+                nullData.put(MainActivity.KEY_FOR_DB_SIZE_REPEAT_VISITS, 0L);
+                dataUsersInSingleСollection.put("group_warder", nullData);
                 firebaseDatabase.getReference("sobranies")
                         .child(task.getResult().getUser().getUid())
                         .child(Calendar.getInstance().get(Calendar.YEAR) + "")
