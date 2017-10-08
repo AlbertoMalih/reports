@@ -28,7 +28,7 @@ public class ChooseDataReportActivity extends BaseActivity {
     FirebaseDatabase firebaseDatabase;
     @Inject
     FirebaseAuth firebaseAuth;
-//    private Map<Integer, List<Integer>> yearsAndMonths;
+    //    private Map<Integer, List<Integer>> yearsAndMonths;
     private Map<Integer, Map<Integer, Map<String, Map<String, Long>>>> allDataFromDb;
 
     @BindView(R.id.lv_show_all_years_from_container_in_db)
@@ -59,10 +59,10 @@ public class ChooseDataReportActivity extends BaseActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        Map<String, Map<String, Map<String, Map<String, Long>>>> tempMap = dataSnapshot.getValue(new GenericTypeIndicator<Map<String, Map<String, Map<String, Map<String, Long>>>>>() {
-                        });
                         allDataFromDb = new HashMap<>();
-                        for (Map.Entry<String, Map<String, Map<String, Map<String, Long>>>> yearsInData : tempMap.entrySet()) {
+                        for (Map.Entry<String, Map<String, Map<String, Map<String, Long>>>> yearsInData :
+                                dataSnapshot.getValue(new GenericTypeIndicator<Map<String, Map<String, Map<String, Map<String, Long>>>>>() {
+                                }).entrySet()) {
 
                             Map<Integer, Map<String, Map<String, Long>>> monthsFromYear = new HashMap<>();
                             for (Map.Entry<String, Map<String, Map<String, Long>>> month : yearsInData.getValue().entrySet()) {
@@ -74,8 +74,10 @@ public class ChooseDataReportActivity extends BaseActivity {
                                 new ArrayAdapter<>(ChooseDataReportActivity.this, android.R.layout.simple_spinner_item, Utils.convertIntegerToCharSequense(allDataFromDb.keySet()))
                         );
                     }
+
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {}
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
                 });
     }
 
