@@ -94,7 +94,6 @@ public class ChooseDataReportActivity extends BaseActivity {
             startActivity(
                     new Intent(this, ShowReportActivity.class).
                             putExtra(ShowReportActivity.MONTHS_DATA, ((HashMap) allDataFromDb.get(year)))
-                            .putExtra(ShowReportActivity.ATTRIBUTE_SHOW_IN_YEAR, true)
             );
         } else {
             Dialogs.createChooseNestedMonthsInYear(
@@ -120,8 +119,6 @@ public class ChooseDataReportActivity extends BaseActivity {
                 else item.setChecked(true);
 
                 inputShowInYear = item.isChecked();
-
-//                item.setChecked(item.isChecked());
                 break;
         }
         return super.onOptionsItemSelected(item);
