@@ -19,39 +19,29 @@
 
         <TextView
             android:id="@+id/size_studying_bible_show_report_of_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextSizeNumber.WrapContent"
             android:text="@string/size_studying_bible"
-            android:layout_marginRight="20dp"
-            android:textIsSelectable="true" />
+            android:layout_marginEnd="20dp" />
 
         <TextView
             android:id="@+id/size_repeated_visits_show_report_of_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/size_repeated_visits"
-            android:textIsSelectable="true" />
+            style="@style/TextSizeNumber.WrapContent"
+            android:text="@string/size_repeated_visits" />
 
         <TextView
             android:id="@+id/size_hours_show_report_of_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/size_hours"
-            android:textIsSelectable="true" />
+            style="@style/TextSizeNumber.WrapContent"
+            android:text="@string/size_hours" />
 
         <TextView
             android:id="@+id/size_videos_of_user_show_report"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/size_videos"
-            android:textIsSelectable="true" />
+            style="@style/TextSizeNumber.WrapContent"
+            android:text="@string/size_videos" />
 
         <TextView
             android:id="@+id/size_publications_of_user_show_report"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/size_publications"
-            android:textIsSelectable="true" />
+            style="@style/TextSizeNumber.WrapContent"
+            android:text="@string/size_publications" />
 
     </GridLayout>
 

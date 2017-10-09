@@ -13,11 +13,8 @@
 
         <EditText
             android:id="@+id/et_size_publication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="@string/size_publications"
-            android:inputType="number" />
+            style="@style/TextSizeNumber" />
 
     </TableRow>
 
@@ -27,11 +24,8 @@
 
         <EditText
             android:id="@+id/et_size_videos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="@string/size_videos"
-            android:inputType="number" />
+            style="@style/TextSizeNumber" />
 
     </TableRow>
 
@@ -41,11 +35,8 @@
 
         <EditText
             android:id="@+id/et_size_hours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="@string/size_hours"
-            android:inputType="number" />
+            style="@style/TextSizeNumber" />
 
     </TableRow>
 
@@ -55,11 +46,8 @@
 
         <EditText
             android:id="@+id/et_size_repeated_visits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="@string/size_repeated_visits"
-            android:inputType="number" />
+            style="@style/TextSizeNumber" />
 
     </TableRow>
 
@@ -69,11 +57,8 @@
 
         <EditText
             android:id="@+id/et_size_studying_bible"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="@string/size_studying_bible"
-            android:inputType="number" />
+            style="@style/TextSizeNumber" />
 
     </TableRow>
 
