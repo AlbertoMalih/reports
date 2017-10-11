@@ -43,8 +43,6 @@ public class ShowReportActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         dataOfUsers = (Map) getIntent().getSerializableExtra(MONTHS_DATA);
         initialize();
     }
@@ -55,9 +53,7 @@ public class ShowReportActivity extends BaseActivity {
     }
 
     @Override
-    public void injectDependencies() {
-
-    }
+    public void injectDependencies() {}
 
     private void initialize() {
         int sizePublications = 0;

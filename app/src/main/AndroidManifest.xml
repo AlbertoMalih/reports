@@ -34,8 +34,9 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ShowReportActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AboutAppActivity"></activity>
+        <activity android:name=".AboutAppActivity"/>
     </application>
 
 </manifest>
