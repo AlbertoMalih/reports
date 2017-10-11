@@ -1,6 +1,7 @@
 package com.example.reports;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -42,6 +43,8 @@ public class ShowReportActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         dataOfUsers = (Map) getIntent().getSerializableExtra(MONTHS_DATA);
         initialize();
     }
